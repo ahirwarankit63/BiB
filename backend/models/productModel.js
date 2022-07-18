@@ -1,4 +1,4 @@
-const mongoose = reuire("mongoose");
+const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema({
   name: {
@@ -13,7 +13,7 @@ const productSchema = mongoose.Schema({
   price: {
     type: Number,
     required: [true, "Please enter product price"],
-    maxLenght: [8, "pi\rice cannot exceed 8 character"],
+    maxLenght: [8, "price cannot exceed 8 character"],
   },
 
   rating: {
@@ -23,7 +23,7 @@ const productSchema = mongoose.Schema({
 
   images: [
     {
-      publid_id: {
+      public_id: {
         type: String,
         required: true,
       },
