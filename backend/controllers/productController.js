@@ -1,11 +1,12 @@
 const Product = require("../models/productModel");
+const ErrorHander = require("../utils/errorhander");
 
 // create product [acc. by {Admin}---------use (get) in postman]
 
 exports.createProduct = async (req, res, next) => {
   const product = await Product.create(req.body);
 
-  res.status(201).json({
+  res.status(201).json({    // where 200 is status code
     success: true,
     product,
   });
@@ -16,15 +17,12 @@ exports.getProductDetails = async(req,res,next) => {
     const product = await Product.findById(req.params.id);
 
     // if product is not found then show the output as product not found
-    if(!product) {
-        return res.status(500).json({
-            success : false,
-            message : " Product not found"
-        })
+    if(!product){
+        return next(new ErrorHander("product not found", 404));
     }
     
     // If product is found then show all the details
-    res.status(200).json ({
+    res.status(200).json ({    //where 200 is status code
         success : true,
         product
     })
@@ -48,12 +46,9 @@ let product = Product.findById(req.params.id);
 
 
     // -->if product is not found then simply throw output "product not found"
-if(!product) {
-    return res.status(500).json({
-        success: false,
-        message: " product not found"
-    })
-}
+    if(!product){
+        return next(new ErrorHander("product not found", 404));
+    }
 
     // -->if product is found then update it
     product = await Product.findByIdAndUpdate( req.params.id, req.body, {
@@ -62,7 +57,7 @@ if(!product) {
         useFindAndMOdify : false
     }),
 
-    res.status(200).json({
+    res.status(200).json({    //where 200 is status code
         success: true,
         product
     })
@@ -76,16 +71,13 @@ if(!product) {
 exports.deleteProduct = async(req,res,next) => {
     const product = await Product.findById(req.params.id);
 
-    if(!product) {
-        return res.status(500).json({
-            success : false,
-            message : " Product not found"
-        })
+    if(!product){
+        return next(new ErrorHander("product not found", 404));
     }
 
     await product.remove();
 
-    res.status(200).json ({
+    res.status(200).json ({  //where 200  is status code
         success : true,
         message : "Product Deleted Successfully" 
     })
