@@ -36,7 +36,21 @@ class ApiFeatures {
 
     removeFields.forEach((key) => delete queryCopy[key]);
 
-    this.query = this.query.find(queryCopy);
+    // this.query = this.query.find(queryCopy);
+    // return this;
+  
+
+  //   filter products PRICE & RATING for category
+    //first of all convert the (queryCopy) in string
+
+    let queryStr = JSON.stringify(queryCopy);
+    queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, (key) => `$${key}`);
+
+
+
+    this.query = this.query.find(JSON.parse(queryStr));
+    
+    
     return this;
   }
 }
