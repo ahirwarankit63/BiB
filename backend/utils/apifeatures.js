@@ -9,6 +9,8 @@ class ApiFeatures {
     // so query is keyword=RBTripathi
   }
 
+  // search products from category
+
   search() {
     const keyword = this.queryStr.keyword
       ? {
@@ -22,6 +24,19 @@ class ApiFeatures {
     console.log(keyword);
 
     this.query = this.query.find({ ...keyword });
+    return this;
+  }
+
+  //   filter products for category
+  filter() {
+    const queryCopy = { ...this.queryStr }; //copying the querry so that it cannot interfear in main query
+
+    // Removing some fields for category
+    const removeFields = ["keyword", "page", "limit"];
+
+    removeFields.forEach((key) => delete queryCopy[key]);
+
+    this.query = this.query.find(queryCopy);
     return this;
   }
 }
