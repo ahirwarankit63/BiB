@@ -11,7 +11,9 @@ dotenv.config({path:"backend/config/config.env"});
 
 connectDatabase();
 
-app.listen(process.env.PORT,() =>
+const server = app.listen(process.env.PORT,() =>
 (
     console.log(`server is working on http://localhost:4000`)
 ))
+
+

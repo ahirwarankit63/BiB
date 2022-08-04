@@ -21,4 +21,3 @@ module.exports = connectDatabase;
 
 
 // const {MongoClient} = require("mongodb");
-
