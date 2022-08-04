@@ -3,8 +3,6 @@ const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apiFeatures");
 
-
-
 // create product [acc. by {Admin}---------use (get) in postman]
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
@@ -37,8 +35,11 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
 // Get All product [acc. by {Admin}---------use (get) in postman]
 
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-
-  const apiFeature = new ApiFeatures(Product.find(), req.query).search().filter();
+  const resultPerPage = 5;
+  const apiFeature = new ApiFeatures(Product.find(), req.query)
+    .search()
+    .filter()
+    .pagination(resultPerPage);
   const products = await apiFeature.query;
   res.status(200).json({
     success: true,
