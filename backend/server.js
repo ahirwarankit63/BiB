@@ -4,6 +4,14 @@ const dotenv = require("dotenv");
 
 const connectDatabase = require("./config/database.js")
 
+// Handeling uncaught error.... something which is not defined and runned in code then closing the server
+
+process.on(`uncaughtException`, (err) => {
+    console.log(`Error : ${err.message}`);
+    console.log(`Shutting down the server due to uncaught execption`);
+    process.exit(1);
+})
+
 // config
 dotenv.config({path:"backend/config/config.env"});
 
@@ -22,10 +30,12 @@ const server = app.listen(process.env.PORT,() =>
     // to resolve it the below code will work and close the server instantly
 
     process.on("unhandledRejection0", err => {
-        console.log(`Error  : $(err.message)`);
+        console.log(`Error  : ${err.message}`);
         console.log(`shutting down the server due to unhandeled Promise rejection`);
     
         server.close(() =>{
             process.exit(1);
         });
     })
+    
+ 
