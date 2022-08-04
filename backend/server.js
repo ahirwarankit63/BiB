@@ -17,3 +17,15 @@ const server = app.listen(process.env.PORT,() =>
 ))
 
 
+// unhandeled promise rejection 
+    //means the error which is occured by the server crash...
+    // to resolve it the below code will work and close the server instantly
+
+    process.on("unhandledRejection0", err => {
+        console.log(`Error  : $(err.message)`);
+        console.log(`shutting down the server due to unhandeled Promise rejection`);
+    
+        server.close(() =>{
+            process.exit(1);
+        });
+    })
