@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const { validate } = require("./productModel");
+// const { validate } = require("./productModel");
+const bcrypt = require("bcryptjs");
+
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -43,5 +45,19 @@ const userSchema = new mongoose.Schema({
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });
+
+
+
+// hashing the password
+
+userSchema.pre("save", async function(next) {
+  
+  // if password is not modified then save it as pervious hashed password
+  if(!this.isModified("password")) {
+    next ();
+
+  }
+  this.password = await bcrypt.hash(this.password, 8)
+})
 
 module.exports = mongoose.model("user", userSchema);
