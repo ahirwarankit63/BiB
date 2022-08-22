@@ -71,6 +71,14 @@ const productSchema = new mongoose.Schema({
     },
   ],
 
+
+  // this is to show the userId in database that which admin has created the product 
+  user : {
+    type: mongoose.Schema.ObjectId,
+    ref : "User",
+    require : true,
+  },
+
   createdAt: {
     type: Date,
     default: Date.now,

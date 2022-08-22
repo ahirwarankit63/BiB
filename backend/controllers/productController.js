@@ -6,6 +6,10 @@ const ApiFeatures = require("../utils/apiFeatures");
 // create product [acc. by {Admin}---------use (get) in postman]
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+
+  // only this line is to  assign the userId with the product that who have created it and it will show the userId in data base
+req.body.user = req.user.id;
+
   const product = await Product.create(req.body);
 
   res.status(201).json({
