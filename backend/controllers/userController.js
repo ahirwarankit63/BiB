@@ -3,6 +3,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const sendToken = require("../utils/jwtToken");
+const sendEmail = require("../utils/sendEmail")
 
 // Register User
 
@@ -59,4 +60,49 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
     success: true,
     message: "Logged Out!!",
   });
+});
+
+
+// Forgot Password
+exports.forgotPassword = catchAsyncErrors(async(req, res, next) => {
+  const user = await User.findOne({email: req.body.email});
+
+  if(!user){
+    return next(new ErrorHander("User not found", 404));
+  }
+    // get reset password token
+    const resetToken = user.getResetPasswordToken();
+    await user.save({validateBeforeSave : false});
+
+    // the below url is in this format --->
+    //`http://localhost/api/v1/password/reset/${resetToken}`    
+    const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
+       
+
+    // message for email
+    const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\n if you have not requested this then, please ignore it!!`;
+
+    try {
+      await sendEmail({
+
+        // sent to user mail
+        email : user.email,
+        // subject of the mail sent to user for password recovery
+        subject : `BookIBook Password Recovery`,
+        message,
+      });
+
+      res.status(200).json({
+        // will be shown in screen after recovery mail sent to user
+        success : true,
+        message : `Email sent to ${user.email} successfully`,
+      })
+
+    } catch(error){
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpire = undefined;
+
+      await user.save({ validateBeforeSave : false});
+      return next(new ErrorHander(error.message, 500));
+    }
 });
