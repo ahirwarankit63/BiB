@@ -200,4 +200,14 @@ exports.updateProfile =  catchAsyncErrors(async ( req, res, next) => {
   })
 });
 
- 
+
+// Get All Users for Admin  
+
+exports.getAllUsers = catchAsyncErrors(async(req, res, next) => {
+  const users = await User.find();
+
+  res.status(200).json({
+    success : true,
+    users,
+  });
+});
