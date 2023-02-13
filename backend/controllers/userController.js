@@ -211,3 +211,21 @@ exports.getAllUsers = catchAsyncErrors(async(req, res, next) => {
     users,
   });
 });
+
+
+//  get a single user for admin
+
+exports.getSingleUser = catchAsyncErrors(async(req, res, next) => {
+  const user = await User.findById(req.params.id);
+
+  if(!user){
+    return next(
+      new ErrorHander(`user does not exist with id: ${req.params.id}`)
+    );
+  }
+
+  res.status(200).json({
+    success : true,
+    user,
+  });
+});
