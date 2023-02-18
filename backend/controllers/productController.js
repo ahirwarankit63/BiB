@@ -6,9 +6,8 @@ const ApiFeatures = require("../utils/apiFeatures");
 // create product [acc. by {Admin}---------use (get) in postman]
 
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
-
   // only this line is to  assign the userId with the product that who have created it and it will show the userId in data base
-req.body.user = req.user.id;
+  req.body.user = req.user.id;
 
   const product = await Product.create(req.body);
 
@@ -88,9 +87,51 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
   await product.remove();
 
-  res.status(200).json({
+  res.status(200).json({        
     //where 200  is status code
     success: true,
     message: "Product Deleted Successfully",
+  });
+});
+
+// create new review and update the review
+
+exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
+  const { rating, comment, productId } = req.body;
+
+  const review = {
+    user: req.user._id,
+    name: req.user.name,
+    rating: Number(rating),
+    comment,
+  };
+
+  const product = await Product.findById(productId);
+
+  const isReviewed = product.reviews.find(
+    (rev) => rev.user.toString() === req.user._id.toString()
+  );
+
+  if (isReviewed) {
+    product.reviews.forEach((rev) => {
+      if (rev.user.toString() === req.user._id.toString())
+        (rev.rating = rating), (rev.comment = comment);
+    });
+  } else {
+    product.reviews.push(review);
+    product.numOfReviews = product.reviews.length;
+  }
+
+  // to find average of reviews
+  let avg = 0;
+
+    product.reviews.forEach((rev) => {
+      avg += rev.rating;
+    }) 
+    product.ratings = avg/ product.reviews.length;
+
+  await product.save({ validateBeforeSave: false });
+  res.status(200).json({
+    success: true,
   });
 });
