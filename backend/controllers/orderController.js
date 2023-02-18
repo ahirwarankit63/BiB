@@ -83,6 +83,10 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
+  if(!order) {
+    return next(new ErrorHander("Order not found with this id", 404));
+  }
+
   if(order.orderStatus === "Dilevered"){
     return next(new ErrorHander("You have already delivered this order", 400));
   }
