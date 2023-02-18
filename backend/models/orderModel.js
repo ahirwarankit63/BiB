@@ -10,11 +10,15 @@ const orderSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    state: {
+      type: String,
+      required: true,
+    },
     country: {
       type: String,
       required: true,
     },
-    pincode: {
+    pinCode: {
       type: Number,
       required: true,
     },
@@ -93,7 +97,7 @@ const orderSchema = new mongoose.Schema({
   orderStatus: {
     type: String,
     required: true,
-    dafault: "Processing",
+    default: "Processing",
   },
   deliveredAt: Date,
   createdAt: {
