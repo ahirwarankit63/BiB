@@ -1,0 +1,97 @@
+footer {
+    margin-top: 10vmax;
+    padding: 2vmax;
+    background: rgb(65,66,68);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+
+/* left footer */
+.leftFooter {
+    width: 25%;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* sub class of <p> tag of left footer */
+.leftFooter >h6 {
+    margin-top: 3vmax;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* left footer <p> tag i.e. "Download our app" */
+.leftFooter > p {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* images of left footer i.e. playstore and apple store img */
+.leftFooter >img {
+    width: 10vmax;
+    margin: 1vmax;
+    cursor: pointer;
+}
+
+
+/* mid footer contend */
+.midFooter {
+    width: 50%;
+    text-align: center;
+}
+
+
+/* midfooter logo */
+.midFooter > h1 {
+    font-size: 4vmax;
+
+    font-family : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    color: rgb(255,126,84);
+}
+
+
+/* mid footer logo */
+.bibLogo {
+    width: 15vmax;
+}
+
+
+/* mid footer <p> tag i.e. slogan of logo */
+.midFooter > p {
+    max-width: 50%;
+    margin: 1vmax auto;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+/* whole right footer */
+.rightFooter {
+    width : 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* "CONTACT US " contend of right footer */
+.rightFooter >h4 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4vmax;
+    text-decoration:underline;
+}
+
+
+/* logo's of right footer */
+.rightFooter >a {
+    text-decoration: none;
+    font-size: 1.3vmax;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin: 0.5vmax;
+
+}

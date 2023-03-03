@@ -17,6 +17,7 @@
 }
 
 
+
 .navbar-brand {
   font-synthesis: style;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -24,12 +25,15 @@
   text-underline-position: below;
 }
 
+/* brand logo logo hover */
 .navbar-brand :hover {
   background: white;
   color: whitesmoke;
   shape-outside: margin-box;
 }
 
+
+/* brand logo */
 .brandLogo :hover{
   /* background-color: rgb(255, 255, 255); */
   color: #ffffff;
@@ -38,15 +42,14 @@
   background-size: 1px; */
 }
 
+
+/* contents of navbar i.e. home, conntact, products, about */
 .navbar-nav {
-  justify-content: left;
   display: flex;
-  margin-left: auto;
-  justify-content: center;
-  align-items: center;
+  /* margin-left: auto; */
+  justify-content:center;
+  align-items:normal;
 }
-
-
 
 
 .nav-link {
