@@ -1,0 +1,172 @@
+* {
+  margin: 0% 0;
+  padding: 0;
+}
+
+
+/* navbar */
+.navbar {
+  background:rgb(19,25,33);
+  color: #fff;
+  z-index: 1; /* set the z-index of the navbar to 1 to ensure it's always on top */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* add a box shadow to the navbar */
+ 
+}
+.navbar a {
+  color: #fff;
+}
+
+
+.navbar-brand {
+  font-synthesis: style;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  box-shadow: inset;
+  text-underline-position: below;
+}
+
+.navbar-brand :hover {
+  background: white;
+  color: whitesmoke;
+  shape-outside: margin-box;
+}
+
+.brandLogo :hover{
+  /* background-color: rgb(255, 255, 255); */
+  color: #ffffff;
+  /* border-radius: 11px;
+  padding: 8px;
+  background-size: 1px; */
+}
+
+.navbar-nav {
+  justify-content: left;
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.nav-link {
+  color: black;
+}
+
+.nav-link:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  border-radius: 11px;
+  padding: 8px;
+  background-size: 10px;
+}
+
+.container-fluid {
+  display: flex;
+}
+
+/* burger button */
+.navbar-toggler-icon  {
+  color: #fff;
+}
+
+#burgerButton{
+  color : white;
+}
+
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  /* justify-content: right; */
+  width: 50vmax;
+}
+
+
+
+
+
+/* profile and myorder/cart logo */
+.icons a i {
+  padding: 0;
+  margin: 0;
+  font-size: 24px; /* increase the font-size of the i element */
+  width: 100px; /* increase the width of the i element */
+  height: 30px; /* increase the height of the i element */
+}
+.icons ul {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0;
+  gap: 20px;
+  list-style: none;
+  display: flex; /* use flexbox to align the li elements */
+}
+
+.icons li {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  display: inline-block; /* change the default block layout to inline-block */
+  margin-right: 15px; /* add some margin between the logos */
+}
+
+.icons a {
+  padding: 0;
+  margin: 0;
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  text-decoration: none; /* remove the underline and blue color from the hyperlink */
+  margin-right: 10px;
+}
+
+.icons i {
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.icons i:hover {
+  padding: 0;
+  margin: 0;
+  transform: scale(1.1);
+}
+
+
+
+.icons a :hover {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  /* border-radius: 10px; */
+  box-sizing: border-box;
+  border-radius: 11px;
+  padding: 5px;
+  background-size: 10px;
+  position: relative;
+}
+
+/* search bar */
+input[type="search"] {
+  height: 1px;
+  width: 30vmax;
+  font-size: 18px;
+  padding: 16px;
+}
+
+
+/* search button */
+.btn {
+  margin: 0;
+  padding: 0.4vmax;
+  /* color: #333; */
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}

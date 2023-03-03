@@ -11,7 +11,7 @@ const sendEmail = async (options) => {
     auth: {
       // SMPT- simple mail transfer protocol
       user:`bookibookofficial@gmail.com` ,
-      pass: `lyksrhxhirshocxg`,
+      pass: `dzwaiftvbwwzrkul`,
     },
   });
 
