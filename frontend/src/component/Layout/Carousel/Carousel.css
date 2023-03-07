@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+  .carousel-item img {
+    height: 400px; /* set the height to 400px on screens wider than 768px */
+    object-fit: cover; /* scale the image to cover the entire container */
+  }
+}
