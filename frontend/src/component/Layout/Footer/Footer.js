@@ -1,7 +1,7 @@
  import React from 'react'
- import appleStore from "../../../images/appleStore.png"
- import playStore from "../../../images/playStore.png"
- import logo from "../../../images/logo.png"
+ import appleStore from "../../../images/appStoreImageForFooter/appleStore.png"
+ import playStore from "../../../images/appStoreImageForFooter/playStore.png"
+ import logo from "../../../images/bibLogoImage/logo.png"
  import "./Footer.css"
  
  const Footer = () => {
