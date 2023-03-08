@@ -4,3 +4,18 @@
     object-fit: cover; /* scale the image to cover the entire container */
   }
 }
+
+/* Default styles for the carousel */
+.carousel {
+  width: 100%;
+  height: 300px;
+  /* other styles */
+}
+
+/* Media query for screens with a maximum width of 768 pixels (i.e., mobile screens) */
+@media (max-width: 768px) {
+  .carousel {
+    height: 400px; /* increase the height for mobile screens */
+  }
+}
+
