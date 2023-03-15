@@ -80,6 +80,11 @@
 /* media query for mobile screen */
 @media screen and (max-width : 600px) {
 
+    .home_heading {
+        margin-top: -29vmax;
+    }
+
+
     .container{
         justify-content: flex-start;
     }
@@ -103,3 +108,4 @@
     }
     
 }
+
