@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./component/Layout/Navbar/Navbar";
 import Footer from "./component/Layout/Footer/Footer.js";
 import Carousel from "./component/Layout/Carousel/Carousel";
-import Home from "./component/Layout/Home/Home.js"
+import Home from "./component/Home/Home.js"
 function App() {
 
   
