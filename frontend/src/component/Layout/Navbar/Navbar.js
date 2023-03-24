@@ -6,8 +6,8 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg ">
-        <div class="container-fluid">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg ">
+        <div className="container-fluid">
           {/* navbar logo */}
           <div className="brandLogo">  <a class="navbar-brand" href="/home">
             BookIBook
@@ -34,7 +34,7 @@ const Navbar = () => {
               <a class="nav-link " aria-current="page" href="/home">
                 Home
               </a>
-              <a class="nav-link" href="/product">
+              <a clasNclasss="nav-link" href="/product">
                 Product
               </a>
               <a class="nav-link" href="/contact">
