@@ -38,7 +38,7 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
 // Get All product [acc. by {Admin}---------use (get) in postman]
 
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-  const resultPerPage = 5;
+  const resultPerPage = 16;
   const productCount = await Product.countDocuments();
 
   const apiFeature = new ApiFeatures(Product.find(), req.query)
