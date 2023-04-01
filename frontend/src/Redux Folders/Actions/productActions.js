@@ -11,7 +11,7 @@ export const getProduct = () => async (dispatch) => {
 
     //here we are requesting the products from backend and then applying the try catch method 
     try {
-        dispatch((type: ALL_PRODUCT_REQUEST));
+        dispatch({type: ALL_PRODUCT_REQUEST});
         //here below we are fetching the data from our database server
         //axios helping to fetch the product from backend
         const {data} = await axios.get("/api/v1/products")
@@ -22,10 +22,12 @@ export const getProduct = () => async (dispatch) => {
         });
 
     } catch (error) {
-        (
+        dispatch
+        ({
             type: ALL_PRODUCT_FAIL,
             payload: error.response.data.message,
-        )}
+         })
+        }
 
 };
 

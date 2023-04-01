@@ -1,16 +1,28 @@
 import React from 'react';
+import { Fragment, useEffect } from "react";
 import "./Home.css";
 import Product from "./Product.js";
 import MetaData from '../Layout/MetaData';
+import { getProduct } from '../../Redux Folders/Actions/productActions';
+import {useSelector , useDispatch} from "react-redux";
 
-const product = {
-  name : "RB Tripathi",
-  price : "₹400",
-  images : [{ url:"https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3BlbiUyMGJvb2t8ZW58MHx8MHx8&w=1000&q=80"}],
-  _id : "hidhosghsgh",
-}
+
+
 
 const Home = () => {
+
+  const dispatch = useDispatch();
+
+  //importing the backend products from redux dev sate to action 
+
+  const {loading, error,products, productsCount} = useSelector(
+    (state) => state.products
+  );
+
+  useEffect(() => {
+    dispatch(getProduct());
+  } , [dispatch]);
+
   return (
     <>  
     <MetaData title={"BIB"}/>
@@ -20,20 +32,10 @@ const Home = () => {
         </h2>
       </div> 
       <div className='container' id='container'>
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+  {products && products.map((product) => <Product product = {product} />)}
 
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
 
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
-        <Product product={product} />
+        
 
 
       </div>
