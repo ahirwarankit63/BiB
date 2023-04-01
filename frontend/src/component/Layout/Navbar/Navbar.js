@@ -9,14 +9,14 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg ">
         <div className="container-fluid">
           {/* navbar logo */}
-          <div className="brandLogo">  <a class="navbar-brand" href="/home">
+          <div className="brandLogo">  <a className="navbar-brand" href="/home">
             BookIBook
           </a>
           </div>
 
           {/* burger button for small screen */}
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             id="burgerButton"
             type="button"
             data-bs-toggle="collapse"
@@ -25,36 +25,36 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
           {/* home, products, contact, and about us section */}
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link " aria-current="page" href="/home">
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+              <a className="nav-link " aria-current="page" href="/home">
                 Home
               </a>
-              <a clasNclasss="nav-link" href="/product">
+              <a className="nav-link" href="/product">
                 Product
               </a>
-              <a class="nav-link" href="/contact">
+              <a className="nav-link" href="/contact">
                 Contact
               </a>
-              <a class="nav-link" href="/about">
+              <a className="nav-link" href="/about">
                 About
               </a>
             </div>
 
             {/* search bar and search button */}
-            <div class="container-fluid ">
-              <form class="d-flex" role="search">
+            <div className="container-fluid ">
+              <form className="d-flex" role="search">
                 <input
-                  class="form-control-sm me-2"
+                  className="form-control-sm me-2"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 ></input>
-                <button class="btn btn-outline-success" type="submit">
+                <button className="btn btn-outline-success" type="submit">
                   Search
                 </button>
               </form>
@@ -65,12 +65,12 @@ const Navbar = () => {
               <ul>
                 <li>
                   <a className="myCartLogo" href="/cart">
-                    <i class="bi bi-cart2 "> </i>
+                    <i className="bi bi-cart2 "> </i>
                   </a>
                 </li>
                 <li>
                   <a className="profileLogo" href="/profile">
-                    <i class="bi bi-person-bounding-box"></i>
+                    <i className="bi bi-person-bounding-box"></i>
                   </a>
                 </li>
               </ul>
